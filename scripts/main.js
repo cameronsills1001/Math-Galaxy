@@ -105,6 +105,8 @@ function processAnswer() {
 
     if(gameState.op === "+"){
         correctAnswer = gameState.top + gameState.bottom;
+        console.log(correctAnswer);
+        
     }
     else if(gameState.op === "-"){
         correctAnswer = gameState.top - gameState.bottom;
@@ -129,7 +131,7 @@ function addToScore(){
 function processHighScore() {
     
     if(gameState.op === "+"  && gameState.score > highScores.add){
-        highScores.add = gameState.score;     
+        highScores.add = gameState.score;   
     } 
     else if (gameState.op === "-" && gameState.score > highScores.sub){
         highScores.sub = gameState.score;
@@ -189,7 +191,7 @@ function prepareProblem(){
     userInput.focus();
 }
 function setProblemNumbers(){
-    gameState.top = gameState.spec === "any" ? randomNum(gameState.max) : gameState.spec;
+    gameState.top = gameState.spec === "any" ? randomNum(gameState.max) : Number(gameState.spec);
     gameState.bottom = randomNum(gameState.max);
 }
 
